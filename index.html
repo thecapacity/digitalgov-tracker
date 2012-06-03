@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Digital Governmet Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital Government Tracker">
+    <meta name="author" content="@wjhuie">
+
+    <!-- Le styles -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+<script>
+$(document).ready(function() {
+
+
+});
+</script>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="">Digital Government Tracker</a>
+            <div class="nav-collapse">
+            <ul class="nav">
+                <li class="active"><a data-toggle="modal" href="#aboutModal">About</a></li>
+                <li><a href="https://twitter.com/#!/search/realtime/%23digitalgov-tracker">Discuss</a></li>
+                <li><a href="http://twitter.com/wjhuie">Contact</a></li>
+            </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+<div class="row">
+<div class="span12">
+
+<div class="modal hide fade" id="aboutModal">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h3>About this Site</h3>
+    </div>
+
+    <div class="modal-body">
+        <h4>Intention</h4>
+        <p> This site tracks progress on the Federal CIO's <a href="http://www.whitehouse.gov/sites/default/files/omb/egov/digital-government/digital-government.html">Digital Government Strategy</a> and the accompanying <a href="http://www.whitehouse.gov/the-press-office/2012/05/23/presidential-memorandum-building-21st-century-digital-government">Presidential Memorandum</a>. </p>
+        <p> Specifically the requirements for every agency to establish:
+        <ol> 
+            <li> Per the Presidential Memo, in 90 days: <a href="">www.[agency].gov/digitalstrategy</a></li>
+            <li> Per the Digital Strategy, in 12 months: <a href="">agency.gov/developer</a></li>
+        </ol>
+        <p> This is a personal project design to, quite literally, codify some of my experiences. </p>
+        <p> Although I have not participated in the creation of these policies, I have been involved as an analyst and advocate for government transformation. The release of the Strategy using <a href="http://twitter.github.com/bootstrap/"> Twitter's Bootstrap</a> was inspiration for me to revisit some of my technical skills. </p> 
+
+        <h4>Inspiration</h4>
+        <p> This site owes much to the <a href="http://sunlightlabs.com/">SunlightLabs</a> and the <a href="http://sunlightlabs.com/open/"> /Open Watcher</a> site.</p>
+        <p> <a href="http://www.nist.gov"> NIST</a> also has an excellent <a href="http://fedv6-deployment.antd.nist.gov/"> IPv6 and DNSSEC Deployment Monitor</a> that may be a relative first in tracking success through empirical evidence based assessment.
+        <p> Perhaps <a href="http://www.gao.gov/">The Government Accountability Office</a> could partner with <a href="http://www.omb.gov">The Office of Management and Budget</a> and use these techniques for more <a href="http://www.whitehouse.gov/sites/default/files/omb/memoranda/2012/m-12-14_1.pdf">evidence-based evaluations</a>.
+    </div>
+
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal" >Close</a>
+    </div>
+</div>
+
+<div class="row">
+
+        {% for agency in agency_list %}
+            <div class="span4" id="{{ agency.acronym }}">
+
+                <h2> <a href="{{ agency.homepage }}">{{ agency.name }}</a> </h2>
+                <span class="status">
+                    <p> <span class="{{ agency.digitalurl_status }}"> {{ agency.digitalurl_status }} </span> <a href="{{ agency.homepage }}/digitalstrategy">/digitalstrategy</a> </p>
+                    <p> <span class="{{ agency.developerurl_status }}"> {{ agency.developerurl_status }} </span> <a href="{{ agency.homepage}}/developer">/developer</a> </p>
+
+                </span>
+            </div>
+        {% endfor %}
+
+</div> <!-- /row agencies -->
+</div> <!-- /span12 -->
+</div> <!-- /row main -->
+</div> <!-- /container -->
+
+<hr />
+<footer>
+
+    <div class="row"> <div class="span12">
+    <div class="row">
+
+        <div class="span8" id="info">
+            <span class="available"> Can Connect </span>
+            <span class="unknown"> Error Connecting </span> 
+            <span class="doubtful"> Unavailable </span> 
+        </div>
+
+        <div class="span4" id="CC"> &copy; theCapacity 2012
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
+            <a href="http://github.com/thecapacity">Source Code</a>
+        </div>
+
+    </div> <!-- end of 1st footer row -->
+    <div class="row">
+    <div class="span12" id="WARN">
+        WARNING: Some webservers are broken (VA) and report success when pages don't exist, others (DoI vs HUD) are inconsistent in how they redirect! #badInternet #trustButVerify
+    </div> </div>
+
+    </div> </div> <!-- end footer rows -->
+
+
+</footer>
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="static/js/bootstrap-modal.js"></script>
+
+</body>
+</html>

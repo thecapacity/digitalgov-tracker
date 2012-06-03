@@ -1,0 +1,5 @@
+cron:
+- description: daily update job to check agency URLs
+  url: /tasks/update
+  schedule: every 24 hours
+            # every day 18:00

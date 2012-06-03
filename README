@@ -1,0 +1,5 @@
+For information on the context please read: http://blog.thecapacity.org
+
+The site is built to run on Google App Engine, but should be easily portable.
+
+Initially no agencies are in the database and "create_agencies()" (from data_shim.py) needs to be run (or the Agency() models should be added manually). This will automaticaly be done by the cron update (set to trigger once a day) if no agencies are present.

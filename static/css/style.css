@@ -1,0 +1,76 @@
+body {
+    background: grey;
+}
+
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+div.nav-collapse {
+    float: right;
+}
+
+.modal a {
+    text-decoration: underline;
+}
+
+h2 {
+   font-size: 100%;
+   text-decoration: underline;
+}
+
+h2 a {
+    color: black;
+}
+
+span.available {
+    background: green;
+    color: transparent;
+}
+
+span.unknown {
+    background: yellow;
+    color: transparent;
+}
+
+span.doubtful {
+    background: red;
+    color: transparent;
+}
+
+.status a {
+    color: black;
+}
+
+.status p {
+    padding-left: 5%;
+}
+
+.status p span {
+    margin-right: 5%;
+}
+
+footer {
+    background: black;
+    color: grey;
+}
+
+footer #CC {
+    text-align: right;
+}
+
+footer #CC a {
+    color: grey;
+}
+
+footer #info span {
+    color: black;
+    margin: 1%;
+}
+
+footer #WARN {
+    color: orange;
+    padding-left: 1%;
+    text-decoration: blink;
+}
